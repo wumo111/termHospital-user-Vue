@@ -15,6 +15,10 @@ const routes = [
   },
   {
     path: '/',
+    redirect: '/login',
+  },
+  {
+    path: '/home',
     name: 'home',
     component: Home
   },
@@ -81,11 +85,22 @@ const routes = [
     path: "/hospital",
     name: "hospital",
     component: ()=>import('../views/Hospital.vue')
+  },
+  {
+    path: "/setMeal",
+    name: "setMeal",
+    component: ()=>import('../views/SetMeal.vue')
+  },
+  //日期选择
+  {
+    path:"/selectDate",
+    name:"selectDate",
+    component:()=>import('../views/SelectDate.vue')
   }
 ]
 
 const router = new VueRouter({
-  mode:'hash',
+  mode:'history',
   routes
 })
 

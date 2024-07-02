@@ -4,7 +4,7 @@
      <section>
        <div class="input-box">
          <i class="fa fa-user-o" aria-hidden="true" ></i>
-         <input type="text" v-model="user.userid" placeholder="输入手机号"
+         <input type="text" v-model="user.userId" placeholder="输入手机号"
                 style="position: relative; left: 1.5vw;"/>
        </div>
        <div class="input-box">
@@ -35,7 +35,7 @@ export default {
     return {
           title: '体检预约-登录',
           user: {
-            userid: '',
+            userId: '',
             password: '',
           }
     }
@@ -65,6 +65,7 @@ export default {
         console.log(response.data);
         if (response.data.code == 200) {
           this.$setSessionStorage("token",response.data.data)
+          this.$setSessionStorage("userId",this.user.userId)
           this.$message({
             showClose: true, //是否显示关闭按钮
             message: '登录操作成功',
